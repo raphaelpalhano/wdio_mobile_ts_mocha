@@ -10,7 +10,7 @@ This boilerplate project has WebdriverIO 8 tests with cucumber and typescript, f
 ## Features:
 
 - Typescript v5
-- Page Object Pattern
+- Commands actions
 - Prettier
 - Multi browser support
   - Chrome
@@ -47,13 +47,13 @@ This boilerplate project has WebdriverIO 8 tests with cucumber and typescript, f
 - Add/Update the capabilities for each service as per the requirement
 - Add/Update the context keys for all the shared data which is easier to track
 - Define the types for any model used in the code
-- Add/Update the generic reused methods in the Page class
+- Add/Update the generic reused methods in commands
 - Add/Update all other utility functions in the utils package
 
 ### Please feel free to update the features and contribute in maintaing this project.
 
 
 
-##
+## Execute emulator without android studio
 
- C:\Users\rapha\AppData\Local\Android\Sdk\emulator> emulator -avd Pixel_3a_API_28
+ ~\Android\Sdk\emulator> emulator -avd Pixel_3a_API_28
