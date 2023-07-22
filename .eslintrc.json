@@ -1,0 +1,46 @@
+{
+  "env": {
+      "es2022": true,
+      "node": true
+      
+  },
+  "plugins": [
+      "wdio"
+    ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:wdio/recommended"
+  ],
+
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-undef": "off",
+    "no-unused-vars": "off",
+      "max-len": [
+        "error",
+        {
+          "code": 165
+        }
+      ],
+      "indent": [
+        "error",
+        2,
+        {
+          "SwitchCase": 1,
+          "ignoredNodes": ["ConditionalExpression"]
+        }
+      ],
+      "quotes": [
+         "error" ,
+         "single",  {  "avoidEscape" : false ,  "allowTemplateLiterals" : true  }
+        ],
+      "semi": [2, "always"]
+  }
+}

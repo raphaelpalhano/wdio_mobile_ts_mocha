@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "target": "ES2022",
+    "resolvePackageJsonExports": false,
+    "rootDir": ".",
+    "incremental": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": true,
+    //"noFallthroughCasesInSwitch": false,
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "strictNullChecks": false,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node", "@wdio/appium-service", "@wdio/globals/types", "expect-webdriverio", "@wdio/mocha-framework", "@wdio/shared-store-service"],
+  },
+  "exclude": [
+    "./node_modules/*",
+    "dist"
+  ]
+}
+
+
