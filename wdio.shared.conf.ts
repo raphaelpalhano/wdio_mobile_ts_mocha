@@ -1,15 +1,17 @@
 import url  from 'node:url';
 import path from 'node:path';
-import { commands } from '../tests/core/commands/index.ts';
+import { commands } from './tests/core/commands/index.ts';
+import { envControl } from './tests/core/env/env-control.utils.ts';
 
 //import { commands } from './tests/core/commands';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const ENV_URL = await envControl();
 
 // @ts-expect-error
 export const config: WebdriverIO.Config = {
   //
   // ====================
-  // Runner Configuration
+  // Runner Configurationcd   ./emulator -avd Pixel_2_API_29
   // ====================
   //
   // WebdriverIO supports running e2e tests as well as unit and component tests.
@@ -45,7 +47,7 @@ export const config: WebdriverIO.Config = {
 
 
   specs: [
-    '../../tests/specs/**/*.ts'
+    './tests/specs/**/*.ts'
   ],
   // Patterns to exclude.
   exclude: [
@@ -76,6 +78,7 @@ export const config: WebdriverIO.Config = {
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
   logLevel: 'trace',
+  outputDir: path.resolve(__dirname, 'logs'),
   //
   // Set specific log levels per logger
   // loggers:
@@ -99,7 +102,7 @@ export const config: WebdriverIO.Config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'https://magento.softwaretestingboard.com/',
+  baseUrl: ENV_URL,
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -111,7 +114,6 @@ export const config: WebdriverIO.Config = {
   // Default request retries count
   connectionRetryCount: 3,
 
-  services: ['chromedriver'],
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -169,9 +171,9 @@ export const config: WebdriverIO.Config = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-  onPrepare: function (config, capabilities) {
+  //onPrepare: async function (config, capabilities) {
     
-  },
+  // },
   /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -256,12 +258,12 @@ export const config: WebdriverIO.Config = {
 
   },
 
-  beforeTest: async function (test, context) {    
+  // beforeTest: async function (test, context) {    
   //const status = await driver.queryAppState(AppCapabilities.getAppId);
   //if(status === 1){
   //  await driver.setupApp();
   //}
-  },
+  // },
 
   /**
    *

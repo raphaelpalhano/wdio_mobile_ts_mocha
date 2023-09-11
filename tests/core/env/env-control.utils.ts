@@ -1,6 +1,5 @@
 import { setValue } from '@wdio/shared-store-service';
-import argumentsUtils from './arguments.utils.ts';
-import { ENVIRONMENT } from '../context/context.keys.ts';
+import { getArgumentValue } from '../utils/arguments.utils.ts';
 
 
 const urls = {
@@ -9,8 +8,8 @@ const urls = {
 
 export async function envControl() {
   let baseUrl: string;
-  let environment: any = argumentsUtils.getArgumentValue('Env');
-  await setValue(ENVIRONMENT, environment);
+  let environment: any = getArgumentValue('env');
+  await setValue('environment', environment);
   
   baseUrl = urls[environment];
 

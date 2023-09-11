@@ -1,4 +1,6 @@
 import type { Options } from '@wdio/types';
+import { config as sharedConfig } from './wdio.shared.conf.ts';
+
 const headless: boolean = process.env.HEADLESS as unknown as boolean;
 
 const androidWebCap = {
@@ -16,6 +18,7 @@ const androidWebCap = {
 export const dynamicConfig: Options.Testrunner = {
   // user: 'login username',
   // key: '1234-abcd-...',
+  ...sharedConfig,
   user: process.env.BROWSERSTACK_USERNAME,
   key: process.env.BROWSERSTACK_ACCESS_KEY,
   region: 'eu-central-1', // or 'eu' or 'apac',
