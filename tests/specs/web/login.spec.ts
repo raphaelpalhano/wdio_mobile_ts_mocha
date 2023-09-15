@@ -4,6 +4,9 @@ describe('Given I access app firs time and make login', () => {
   
   it('When acces app and see login', async () => {
     const user = await jsonImport('../../fixture/static/user_data.json');
-    await driver.browserLogin({email: user[0].email,  password: user[0].password});
+    const userDAta = user[0][0];
+    console.log(userDAta);
+    await driver.browserLogin(userDAta);
+   
   });
 });

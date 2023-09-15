@@ -10,7 +10,7 @@ export async function serviceControl() {
   const browserstack = process.argv.includes('--browserstack') ? 'BROWSERSTACK' : '';
   const saucelabs = process.argv.includes('--saucelabs') ? 'SAUCELABS' : '';
   const serviceType = firefox || edge || docker || selenoid || crossbrowser || safari || standalone || appium || browserstack || saucelabs || 'CHROME';
-  console.log('Service type: ' + serviceType);
+  console.log(`Service type: ${serviceType}`);
   const dynamicConfig = await import(`../../../config/wdio.${serviceType}.conf.ts`);
   return dynamicConfig;
 }

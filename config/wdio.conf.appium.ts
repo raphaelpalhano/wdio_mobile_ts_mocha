@@ -1,4 +1,4 @@
-import { config as sharedConfig } from '../wdio.shared.conf.ts';
+import { config as sharedConfig } from './wdio.shared.conf.ts';
 
 const headless: boolean = process.env.HEADLESS as unknown as boolean;
 
@@ -6,13 +6,12 @@ const androidWebCap = {
   maxInstances: 1, // change based on local parallel device's availability
   platformName: 'Android',
   browserName: 'chrome',
-  'appium:deviceName': 'Pixel 3a',
-  'appium:platformVersion': '9.0',
+  'appium:deviceName': 'Pixel_2_API_29',
+  'appium:platformVersion': '10',
   'appium:orientation': 'PORTRAIT',
-  'appium:automationName': 'UiAutomator2',
-  acceptInsecureCerts: true,
+  'appium:automationName': 'UiAutomator2', //Pixel 2 API 29
   'appium:newCommandTimeout': 240,
-  //'appium:chromedriver_autodownload': true,
+  'appium:noReset': false,
   timeouts: { implicit: 60000, pageLoad: 60000, script: 60000 },
 };
 
@@ -24,7 +23,7 @@ const iOSWebCap = {
   'appium:deviceName': 'iPhone 11 Pro',
   'appium:platformVersion': '15.2',
   'appium:automationName': 'XCUITest',
-  acceptInsecureCerts: true,
+  acceptInsecureCerts: false,
   timeouts: { implicit: 60000, pageLoad: 60000, script: 60000 }
 };
 
