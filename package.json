@@ -16,6 +16,7 @@
     "@wdio/selenium-standalone-service": "^8.8.7",
     "@wdio/shared-store-service": "^8.8.6",
     "@wdio/spec-reporter": "^8.8.4",
+    "allure-commandline": "^2.24.0",
     "browserstack-local": "^1.5.3",
     "chromedriver": "^113.0.0",
     "deepmerge-ts": "^5.1.0",
@@ -41,7 +42,7 @@
   "scripts": {
     "xunit-report": "node_modules/.bin/xunit-viewer --server -p=3000 -t='Automation Test Report' --results=./test/reports/junit-results --output=./xunit-report/xunit-report.html",
     "allure:history": "mkdir -p allure-report/history ./webdriverIO/reports/history && cp -a allure-report/history ./webdriverIO/reports/",
-    "allure-report": "./node_modules/.bin/allure generate --clean ./reports && allure open -p 5050",
+    "report": "./node_modules/.bin/allure generate --clean ./tests/reports/allure-results; ./node_modules/.bin/allure open -p 5050",
     "wdio-local": "set HEADLESS=true && wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@demo' --env=dev --chrome",
     "wdio:appium": "wdio ./config/wdio.conf.appium.ts --env=dev",
     "wdio:browserstack": "wdio run ./config/wdio.browserstack.conf.ts --env=dev",
