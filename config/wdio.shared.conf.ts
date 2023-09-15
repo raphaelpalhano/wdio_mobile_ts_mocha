@@ -1,7 +1,7 @@
 import url  from 'node:url';
 import path from 'node:path';
-import { commands } from './tests/core/commands/index.ts';
-import { envControl } from './tests/core/env/env-control.utils.ts';
+import { envControl } from '../tests/core/env/env-control.utils.ts';
+import { commands } from '../tests/core/commands/index.ts';
 
 //import { commands } from './tests/core/commands';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -20,7 +20,7 @@ export const config: WebdriverIO.Config = {
     autoCompile: true,
     tsNodeOpts: {
       transpileOnly: true,
-      project: './tsconfig.json'
+      project: '../tsconfig.json'
     }
   },
 
@@ -47,7 +47,7 @@ export const config: WebdriverIO.Config = {
 
 
   specs: [
-    './tests/specs/**/*.ts'
+    '../tests/specs/**/*.ts'
   ],
   // Patterns to exclude.
   exclude: [

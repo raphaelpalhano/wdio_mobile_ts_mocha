@@ -46,3 +46,10 @@ This boilerplate project has WebdriverIO 8 tests with cucumber and typescript, f
 ~\Android\Sdk\emulator> ./emulator list avds
 
  ~\Android\Sdk\emulator> ./emulator -avd Pixel_3a_API_28
+
+ 
+ ## browser error version
+
+execute
+
+appium server --allow-insecure chromedriver_autodownload

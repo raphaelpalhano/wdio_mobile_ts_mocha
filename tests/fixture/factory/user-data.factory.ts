@@ -1,11 +1,11 @@
-import { Users } from '../core/types/Users.ts';
-import { getArgumentValue } from '../core/utils/arguments.utils.ts';
-import { objectToJSONArrayWithoutKey } from '../core/utils/json.utils.ts';
+import { Users } from '../../core/types/Users.ts';
+import { getArgumentValue } from '../../core/utils/arguments.utils.ts';
+import { objectToJSONArrayWithoutKey } from '../../core/utils/json.utils.ts';
 
 let environment: any = await getArgumentValue('env');
 console.log('Environment: ' + environment);
 
-const userdata = await import(`../fixture/static/user_data.json`, {
+const userdata = await import(`../static/user_data.json`, {
   assert: { type: 'json' }
 });
 
