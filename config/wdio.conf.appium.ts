@@ -1,19 +1,21 @@
 import { config as sharedConfig } from './wdio.shared.conf.ts';
+import path from 'path';
 
 const headless: boolean = process.env.HEADLESS as unknown as boolean;
+
 
 const androidWebCap = {
   maxInstances: 1, // change based on local parallel device's availability
   platformName: 'Android',
-  browserName: 'chrome',
-  'appium:deviceName': 'Pixel_2_API_29',
-  'appium:platformVersion': '10',
+  'appium:deviceName': 'Pixel_7_API_30',
+  'appium:platformVersion': '11',
   'appium:orientation': 'PORTRAIT',
-  'appium:automationName': 'UiAutomator2', //Pixel 2 API 29
+  'appium:automationName': 'UiAutomator2', 
   'appium:newCommandTimeout': 240,
   'appium:noReset': false,
   timeouts: { implicit: 60000, pageLoad: 60000, script: 60000 },
-};
+  'appium:app': path.join(process.cwd() , './app/app-release3.apk'),
+}; 
 
 const iOSWebCap = {
   maxInstances: 1, // change based on local parallel device's availability

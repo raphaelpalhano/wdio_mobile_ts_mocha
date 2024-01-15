@@ -1,9 +1,9 @@
 import url  from 'node:url';
-import path from 'node:path';
-import { envControl } from '../tests/core/env/env-control.utils.ts';
-import { commands } from '../tests/core/commands/index.ts';
+import { envControl } from '../src/env/env-control.utils.ts';
+import { objectLocators } from '../src/screen/components/locators.components.ts';
 
-//import { commands } from './tests/core/commands';
+
+
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const ENV_URL = await envControl();
 
@@ -47,7 +47,7 @@ export const config: WebdriverIO.Config = {
 
 
   specs: [
-    '../tests/specs/**/*.ts'
+    '../src/specs/**/*.ts'
   ],
   // Patterns to exclude.
   exclude: [
@@ -77,8 +77,8 @@ export const config: WebdriverIO.Config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: 'trace',
-  outputDir: path.resolve(__dirname, 'logs'),
+  logLevel: 'debug',
+  //outputDir: path.resolve(__dirname, 'logs'),
   //
   // Set specific log levels per logger
   // loggers:
@@ -140,7 +140,7 @@ export const config: WebdriverIO.Config = {
   reporters: [
     'spec',
     ['allure', {
-      outputDir: './tests/reports/allure-results',
+      outputDir: './reports/allure-results',
       disableWebdriverStepsReporting: true,
       disableWebdriverScreenshotsReporting: true,
     }],
@@ -250,10 +250,9 @@ export const config: WebdriverIO.Config = {
      * @param {Object}                 context  Cucumber World object
      */
   before: async function (world, context) {
-    await commands();
-    //AppCapabilities.setAppId('br.com.paguemenos.anjodaguarda',
-    //  'br.com.paguemenos.anjodaguardaw');
-
+    const mobile = driver.isAndroid ? 'android' : 'iOs';
+    globalThis.locators = objectLocators[mobile];
+    
    
 
   },

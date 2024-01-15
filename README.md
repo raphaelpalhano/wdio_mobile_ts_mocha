@@ -53,3 +53,8 @@ This boilerplate project has WebdriverIO 8 tests with cucumber and typescript, f
 execute
 
 appium server --allow-insecure chromedriver_autodownload
+
+
+
+deepmerge-ts
+    "yargs": "^17.7.1"
